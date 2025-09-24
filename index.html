@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Explore Mabini, Batangas</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== styles.css content embedded ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #e0f7fa;
+      color: #1a1a1a;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      background-color: #00796b;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 140px;
+      filter: brightness(110%);
+      transition: filter 0.3s;
+    }
+
+    .logo img:hover {
+      filter: brightness(130%);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 8px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #004d40;
+    }
+
+    .banner-section {
+  height: 80vh;
+  background: url('https://www.vacationhive.com/images/hives/61/61-anilao-batangas-main-img-new.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #fff;
+  padding-left: 5%;
+  position: relative;
+  box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.5);
+}
+
+    .banner-text {
+      max-width: 500px;
+      animation: fadeInLeft 1.5s ease forwards;
+    }
+
+    .banner-text h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .banner-text p {
+      font-size: 1.25rem;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .btn-primary {
+      background-color: #00796b;
+      color: #fff;
+      padding: 12px 28px;
+      font-weight: 600;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 121, 107, 0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #004d40;
+      box-shadow: 0 6px 15px rgba(0, 77, 64, 0.8);
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.75rem;
+      text-align: center;
+      margin: 50px 0 30px;
+      color: #004d40;
+      text-shadow: 0 1px 2px #a5d6a7;
+    }
+
+    .attractions-section {
+      padding-bottom: 50px;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      max-width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      gap: 20px;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      opacity: 0.5;
+      transition: opacity 0.5s;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .carousel-slide:hover img {
+      transform: scale(1.05);
+    }
+
+    .slide-caption {
+      padding: 15px;
+      background: #00796b;
+      color: #fff;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      opacity: 0.9;
+    }
+
+    .slide-caption h3 {
+      margin-bottom: 5px;
+      font-size: 1.5rem;
+    }
+
+    .slide-caption p {
+      font-size: 1rem;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 121, 107, 0.7);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      padding: 10px 18px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      z-index: 10;
+    }
+
+    .carousel-btn:hover {
+      background-color: #004d40;
+    }
+
+    .carousel-btn.prev {
+      left: 15px;
+    }
+
+    .carousel-btn.next {
+      right: 15px;
+    }
+
+    .carousel-dots {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .carousel-dots button {
+      border: none;
+      background-color: #00796b;
+      width: 14px;
+      height: 14px;
+      margin: 0 6px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .carousel-dots button.active,
+    .carousel-dots button:hover {
+      background-color: #004d40;
+    }
+
+    .plan-visit-section {
+      background: #a5d6a7;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .plan-visit-section p {
+      max-width: 600px;
+      margin: 15px auto 30px;
+      font-size: 1.2rem;
+      color: #004d40;
+    }
+
+    .contact-section {
+      padding: 50px 0;
+      text-align: center;
+      background: #e0f2f1;
+    }
+
+    .contact-section a {
+      color: #00796b;
+      font-weight: 600;
+    }
+
+    .social-links {
+      margin: 20px 0 40px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .social-links img {
+      width: 40px;
+      filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.15));
+      transition: filter 0.3s ease;
+    }
+
+    .social-links img:hover {
+      filter: drop-shadow(0 0 5px #00796b);
+    }
+
+    .map-container iframe {
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 900px;
+      height: 350px;
+    }
+
+    footer {
+      background-color: #004d40;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    @media (max-width: 900px) {
+      .banner-text h1 {
+        font-size: 2.5rem;
+      }
+
+      .carousel-slide img {
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header .header-content {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .banner-text {
+        max-width: 100%;
+        padding-right: 10px;
+      }
+
+      .carousel-slide img {
+        height: 200px;
+      }
+    }
+
+    @keyframes fadeInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      const nextButton = document.querySelector('.carousel-btn.next');
+      const prevButton = document.querySelector('.carousel-btn.prev');
+      const dotsNav = document.querySelector('.carousel-dots');
+
+      let currentIndex = 0;
+
+      slides.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        if (idx === 0) dot.classList.add('active');
+        dotsNav.appendChild(dot);
+      });
+
+      const dots = Array.from(dotsNav.children);
+
+      function updateCarousel() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        slides.forEach((slide, idx) => {
+          slide.classList.toggle('active', idx === currentIndex);
+        });
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentIndex);
+        });
+      }
+
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+      });
+
+      prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel();
+      });
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          currentIndex = idx;
+          updateCarousel();
+        });
+      });
+
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+      }, 5000);
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <img src="c:\Users\jhunj\OneDrive\Documents\mabini logo.png" alt="Mabini Tourism Logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#attractions">Attractions</a></li>
+          <li><a href="#visit">Plan Your Visit</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="banner-section">
+    <div class="banner-text">
+      <h1>Discover the Beauty of Mabini, Batangas</h1>
+      <p>Your ultimate getaway destination</p>
+      <a href="#visit" class="btn-primary">Plan Your Visit</a>
+    </div>
+  </section>
+
+  <section id="attractions" class="attractions-section container">
+    <h2 class="section-title">Top Attractions</h2>
+    <div class="carousel">
+      <button class="carousel-btn prev">&#10094;</button>
+      <div class="carousel-track">
+        <div class="carousel-slide active">
+          <img src="c:\Users\jhunj\OneDrive\Documents\anilao.webp" alt="Diving Spots in Mabini" />
+          <div class="slide-caption">
+            <h3>Anilao Diving Spots</h3>
+            <p>Explore vibrant marine life at world-class dive sites.</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="c:\Users\jhunj\Downloads\masasa.jpg" alt="Beaches of Mabini" />
+          <div class="slide-caption">
+            <h3>Masasa Beach</h3>
+            <p>Relax and soak in the sun on beautiful sandy beaches.</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="c:\Users\jhunj\OneDrive\Documents\gulugod baboy.jpg" alt="Mt. Gulugod Baboy Hike" />
+          <div class="slide-caption">
+            <h3>Mt. Gulugod Baboy</h3>
+            <p>Hike to breathtaking views and stunning landscapes.</p>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <img src="c:\Users\jhunj\OneDrive\Documents\lomi.jpg" />
+          <div class="slide-caption">
+            <h3>Local Delicacies</h3>
+            <p>Taste the rich flavors of Mabini's traditional cuisine.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn next">&#10095;</button>
+      <div class="carousel-dots"></div>
+    </div>
+  </section>
+
+  <section id="visit" class="plan-visit-section">
+    <div class="container">
+      <h2 class="section-title">Plan Your Visit</h2>
+      <p>Ready for an unforgettable experience? Book your trip now and explore everything Mabini has to offer!</p>
+      <a href="#" class="btn-primary">Book Now</a>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section container">
+    <h2 class="section-title">Contact Us</h2>
+    <p>Email: <a href="mailto:contact@mabinibatangas.ph">contact@mabinibatangas.ph</a></p>
+    <div class="social-links">
+      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook icon" /></a>
+      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram icon" /></a>
+    </div>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3839.738558276711!2d120.8811968147751!3d13.81903380200824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd70b18d2ee6ef%3A0x47f2313f9b0561ab!2sMabini%2C%20Batangas!5e0!3m2!1sen!2sph!4v1694912345678!5m2!1sen!2sph"
+        width="100%"
+        height="350"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Map of Mabini, Batangas"
+      ></iframe>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Explore Mabini, Batangas. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
